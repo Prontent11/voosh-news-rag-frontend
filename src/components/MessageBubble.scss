@@ -1,0 +1,72 @@
+.message-bubble {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: hsl(var(--muted) / 0.5);
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__role {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    margin-bottom: 0.25rem;
+    color: hsl(var(--muted-foreground));
+  }
+
+  &__text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  &--user {
+    .message-bubble__avatar {
+      background-color: hsl(var(--chat-user-bg));
+      color: hsl(var(--chat-user-fg));
+    }
+
+    .message-bubble__text {
+      color: hsl(var(--foreground));
+    }
+  }
+
+  &--assistant {
+    background-color: hsl(var(--secondary) / 0.5);
+
+    .message-bubble__avatar {
+      background-color: hsl(var(--muted));
+      color: hsl(var(--muted-foreground));
+    }
+
+    .message-bubble__text {
+      color: hsl(var(--foreground));
+    }
+  }
+}
