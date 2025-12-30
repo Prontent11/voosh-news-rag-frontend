@@ -1,5 +1,6 @@
 import { useTypewriter } from '../hooks/useTypewriter';
 import './MessageBubble.scss';
+import ReactMarkdown from 'react-markdown'
 
 export default function MessageBubble({ role, content, isNew = false }) {
   const isUser = role === 'user';
@@ -21,7 +22,9 @@ export default function MessageBubble({ role, content, isNew = false }) {
       <div className="message-bubble__content">
         <span className="message-bubble__role">{isUser ? 'You' : 'Assistant'}</span>
         <p className="message-bubble__text">
-          {isUser ? content : displayedText}
+          {isUser ? 
+          <ReactMarkdown>{content}</ReactMarkdown>
+           :  <ReactMarkdown>{displayedText}</ReactMarkdown>}
           {isTyping && <span className="message-bubble__cursor">|</span>}
         </p>
       </div>
