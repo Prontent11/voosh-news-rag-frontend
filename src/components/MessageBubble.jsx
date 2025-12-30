@@ -28,4 +28,3 @@ export default function MessageBubble({ role, content, isNew = false }) {
     </div>
   );
 }
-

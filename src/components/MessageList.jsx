@@ -20,7 +20,7 @@ function MessageList({ messages, isLoading }) {
               <path d="M2 12L12 17L22 12" />
             </svg>
           </div>
-          <h3>Welcome to News RAG Chatbot</h3>
+          <h3>Welcome to Smart News</h3>
           <p>Ask me anything about recent news. I'll search through the latest articles to provide you with accurate, up-to-date information.</p>
         </div>
       )}

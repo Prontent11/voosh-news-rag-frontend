@@ -11,6 +11,7 @@ function ChatInput({ onSend, disabled }) {
       setMessage('');
     }
   };
+  
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {

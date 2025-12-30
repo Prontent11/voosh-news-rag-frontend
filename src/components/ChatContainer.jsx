@@ -32,6 +32,9 @@ function ChatContainer() {
     };
 
     initSession();
+
+    return ()=>{
+    }
   }, []);
 
   const handleSend = useCallback(async (message) => {
@@ -91,7 +94,7 @@ function ChatContainer() {
                 <path d="M2 12L12 17L22 12" />
               </svg>
             </div>
-            <h1>News RAG Chatbot</h1>
+            <h1>Smart News</h1>
           </div>
         </header>
         <div className="chat-container__loading">
@@ -113,7 +116,7 @@ function ChatContainer() {
               <path d="M2 12L12 17L22 12" />
             </svg>
           </div>
-          <h1>News RAG Chatbot</h1>
+          <h1>Smart News</h1>
         </div>
         <button 
           className="chat-header__reset"
