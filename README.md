@@ -1,73 +1,95 @@
-# Welcome to your Lovable project
+# 📰 News RAG Chatbot — Frontend
 
-## Project info
+Frontend for the News RAG Chatbot.  
+Provides a simple chat interface to interact with a Retrieval-Augmented Generation (RAG) backend.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## Overview
 
-There are several ways of editing your application.
+- Built using **React + Vite**
+- UI scaffolded using **Lovable**
+- Integrates with REST-based backend API
+- Supports session-based chat
+- Bot responses are rendered using a **typed-out (progressive) effect**
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Lovable Usage
 
-Changes made via Lovable will be committed automatically to this repo.
+The initial UI and component structure were generated using **Lovable**.
 
-**Use your preferred IDE**
+### Prompt Used:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```
+Create a single-page chat interface for a news chatbot that:
+- Has a clean, modern design with a message input at the bottom
+- Integrates with a REST backend API (POST /api/chat endpoint)
+- Persists sessionId in localStorage for conversation continuity
+- Displays user messages on the right and assistant messages on the left
+- Includes a reset chat button to start a new conversation
+- Shows a typing indicator while waiting for responses
+- Auto-scrolls to the latest message
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+The generated code was later refined and connected to the actual backend.
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Typed-Out Responses
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+The frontend simulates streaming by progressively rendering the full response returned by the backend.
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Backend returns the complete response
+- Frontend displays it character-by-character
+- Improves UX without backend streaming complexity
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+---
+
+## Environment Variable
+
+Create a `.env` file:
+
+```env
+VITE_BACKEND_API=https://your-backend-url.onrender.com
+```
+
+Used in code as:
+```javascript
+const BASE_URL = import.meta.env.VITE_BACKEND_API;
+```
+
+---
+
+## Run Locally
+
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+App runs at: `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## Backend Dependency
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The frontend expects the backend to expose:
 
-## What technologies are used for this project?
+- `POST /api/chat`
+- `GET /api/history/:sessionId`
+- `DELETE /api/reset/:sessionId`
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Related Repository
 
-## How can I deploy this project?
+Backend Repository : https://github.com/Prontent11/voosh-news-rag-backend/tree/main
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## Status
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+✔ Frontend complete  
+✔ Integrated with backend  
+✔ Ready for deployment
