@@ -8,6 +8,20 @@
     background-color: hsl(var(--muted) / 0.5);
   }
 
+   &__cursor {
+    display: inline-block;
+    animation: blink 0.8s infinite;
+    color: hsl(var(--primary));
+    font-weight: 300;
+    margin-left: 1px;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+
   &__avatar {
     flex-shrink: 0;
     width: 2rem;

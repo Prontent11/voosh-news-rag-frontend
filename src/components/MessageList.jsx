@@ -30,6 +30,7 @@ function MessageList({ messages, isLoading }) {
           key={index}
           role={message.role}
           content={message.content}
+          isNew={index === messages.length - 1 && message.role === 'assistant'}
         />
       ))}
 

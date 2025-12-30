@@ -1,7 +1,9 @@
+import { useTypewriter } from '../hooks/useTypewriter';
 import './MessageBubble.scss';
 
-function MessageBubble({ role, content }) {
+export default function MessageBubble({ role, content, isNew = false }) {
   const isUser = role === 'user';
+  const { displayedText, isTyping } = useTypewriter(content, 15, !isUser && isNew);
 
   return (
     <div className={`message-bubble ${isUser ? 'message-bubble--user' : 'message-bubble--assistant'}`}>
@@ -18,10 +20,12 @@ function MessageBubble({ role, content }) {
       </div>
       <div className="message-bubble__content">
         <span className="message-bubble__role">{isUser ? 'You' : 'Assistant'}</span>
-        <p className="message-bubble__text">{content}</p>
+        <p className="message-bubble__text">
+          {isUser ? content : displayedText}
+          {isTyping && <span className="message-bubble__cursor">|</span>}
+        </p>
       </div>
     </div>
   );
 }
 
-export default MessageBubble;
